@@ -161,7 +161,6 @@ public class DBServices implements IDBServices{
             Statement stmt = conn.createStatement();
             stmt.execute("UPDATE `student` SET `surname` = ('" + newSurname + "'), `name` = ('" + newName + "'), `group` = ('" + newGroup + "')," +
                     " `date` = ('" + newDate + "') WHERE (`id` = ('" + id + "'));");
-
         }
         catch (Exception e){
             e.printStackTrace();
