@@ -1,0 +1,190 @@
+/*  шапка  */
+.header {
+    border: solid 2px black;
+    background-color: white;
+    text-align: center;
+}
+
+.header,
+.midle-place,
+.justify {
+    width: 60%;
+}
+
+body {
+    background-color: rgb(195, 195, 195);
+}
+
+.flex {
+    display: flex;
+}
+
+.side {
+    width: 20%;
+}
+
+.margin-top-auto{
+    margin-top: auto;
+}
+
+.rigth-side {
+    height: auto;
+    margin-left: 10px;
+}
+
+.link a {
+    font-size: large;
+}
+
+/* кнопки студенты дисциплины семестры  */
+.link {
+    height: 60px;
+    margin-top: 60px;
+}
+
+.justify {
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+/* StudentList */
+.margin-top{
+    margin-top: 40px;
+}
+
+.backToStart {
+    margin: 0 0 0 10px;
+}
+
+.backToStart a{
+    margin-right: 10px;
+}
+
+.button{
+    background-color: darkgray;
+    border: solid 1px black;
+    text-align: center;
+    width: 370px;
+    margin: 0 20px 20px 0;
+    text-decoration: none;
+    color: black;
+    padding:5px 15px;
+    font-size: 15px;
+}
+
+.margin-left{
+    margin-left: 20%;
+}
+
+/* таблица */
+
+/* внешние границы таблицы серого цвета толщиной 1px */
+table {
+    border: 1px solid dimgray;
+    border-collapse: collapse;
+    width: 100%;
+    min-height: 200px;
+}
+/* границы ячеек первого ряда таблицы */
+th {
+    padding: 60px 0 20px 10px;
+    border: 1px solid dimgrey;
+    text-align: left;
+}
+/* границы ячеек тела таблицы */
+td {
+    border: 1px solid dimgrey;
+    height: min-content;
+    padding: 10px 0 10px 10px;
+}
+
+.thead {
+    background-color: darkgray;
+}
+h3{
+    margin: 0;
+}
+
+.nameText{
+    margin: 5px 0 20px 0;
+    text-align: right;
+}
+
+.inputText{
+    padding-top: 16px;
+    margin: 5px 0 20px 20px;
+}
+
+.textInput{
+    margin-bottom: 14px;
+    height: 16px;
+    border: solid 1px black;
+}
+
+.confirm{
+    padding: 5px 35px;
+    width: 150px;
+}
+
+.margin-bottom{
+    margin-bottom: 40px;
+}
+
+.margin-0{
+    margin: 0 0 40px 0;
+}
+
+.sideDiscipline{
+    width: 30%;
+}
+
+.justBut{
+    margin-top: 6px;
+}
+
+.student-table{
+    min-height: 100%;
+}
+
+.student-table th{
+    padding: 10px 0 10px 10px;
+}
+
+.student-table td{
+    padding: 10px 0 10px 10px;
+}
+
+select{
+    padding: 5px 15px;
+    border: solid 1px black;
+}
+
+.progress{
+    padding: 5px 15px;
+    background-color: darkgray;
+    border: solid 1px black;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.justBetween{
+    justify-content: space-evenly;
+}
+
+.buttonBot{
+    justify-content: end;
+    display: flex;
+}
+
+.margin-rigth{
+    margin-right: 30px;
+}
+
+.margin-bot14{
+    margin-bottom: 14px;
+}
