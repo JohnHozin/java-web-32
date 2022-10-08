@@ -29,7 +29,11 @@ public class StudentCreateController extends HttpServlet {
         String group = req.getParameter("group");
         String date = req.getParameter("date");
         DBServices database = new DBServices();
-//        if (surname == null || surname.equals("") || name == null || name.equals("") || group == null || group.equals("") || date == null || date.equals(""))
+        if (surname == null || surname.equals("") || name == null || name.equals("") || group == null || group.equals("") || date == null || date.equals("")) {
+            req.setAttribute("Error", 1);
+            req.getRequestDispatcher("WEB-INF/student-create.jsp").forward(req, resp);
+            return;
+        }
         // string to date
         DateFormat format = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
         Date dateFromUser;

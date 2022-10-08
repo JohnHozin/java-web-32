@@ -188,3 +188,8 @@ select{
 .margin-bot14{
     margin-bottom: 14px;
 }
+
+.mas-er{
+    color: red;
+    font-size: larger;
+}

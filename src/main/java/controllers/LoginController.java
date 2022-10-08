@@ -24,7 +24,10 @@ public class LoginController extends HttpServlet {
 
         DBServices services = new DBServices();
         if (services.canLogin(login,password,role)){
-
+            req.getSession().setAttribute("isLogin", true);
+            req.getSession().setAttribute("role", role);
+            req.getSession().setAttribute("login", login);
+            resp.sendRedirect("/");
         }
     }
 }
