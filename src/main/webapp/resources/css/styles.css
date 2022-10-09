@@ -189,7 +189,7 @@ select{
     margin-bottom: 14px;
 }
 
-.mas-er{
+.error p{
     color: red;
     font-size: larger;
 }

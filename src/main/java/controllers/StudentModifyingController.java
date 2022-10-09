@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-@WebServlet(name = "StudentModifyingController", urlPatterns = "/student-modify")              //"/student-modifying")
+@WebServlet(name = "StudentModifyingController", urlPatterns = "/student-modify")
 public class StudentModifyingController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -50,24 +50,5 @@ public class StudentModifyingController extends HttpServlet {
 
         database.modifyStudent(id, surname, name, group, dateToDataBase);
         resp.sendRedirect("/students");
-//        String surname = req.getParameter("surname");
-//        String name = req.getParameter("name");
-//        String group = req.getParameter("group");
-//        String date = req.getParameter("date");
-//        DBServices database = new DBServices();
-//        // string to date
-//        DateFormat format = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
-//        Date dateFromUser;
-//        try {
-//            dateFromUser = format.parse(date);
-//        } catch (ParseException e) {
-//            throw new RuntimeException(e);
-//        }
-//        // Date to String
-//        Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        String dateToDataBase = formatter.format(dateFromUser);
-//
-//        database.createStudent(surname, name, group, dateToDataBase);
-//        resp.sendRedirect("/students");
     }
 }

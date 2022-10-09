@@ -1,7 +1,6 @@
 package controllers;
 
 import db.DBServices;
-import entity.Discipline;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "DisciplineCreateController", urlPatterns = "/discipline-create")
 public class DisciplineCreateController extends HttpServlet {
@@ -18,4 +16,16 @@ public class DisciplineCreateController extends HttpServlet {
         req.getRequestDispatcher("WEB-INF/discipline-create.jsp").forward(req, resp);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String discipline = req.getParameter("discipline");
+        DBServices database = new DBServices();
+        if (discipline == null || discipline.equals("")) {
+            req.setAttribute("Error", 1);
+            req.getRequestDispatcher("WEB-INF/discipline-create.jsp").forward(req, resp);
+            return;
+        }
+        database.createDiscipline(discipline);
+        resp.sendRedirect("/disciplines");
+    }
 }

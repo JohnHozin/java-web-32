@@ -246,7 +246,24 @@ public class DBServices implements IDBServices{
 
     @Override
     public List<Role> getAllActiveRoles() {
-        return null;
+        ArrayList<Role> roles = new ArrayList<>();
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(Constants.URL_TO_DB, Constants.LOGIN_TO_DB, Constants.PASSWORD_TO_DB);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from role");
+
+            while (rs.next()){
+                Role role = new Role();
+                role.setId(rs.getInt("id"));
+                role.setRole(rs.getString("role"));
+                roles.add(role);
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return roles;
     }
 
     @Override

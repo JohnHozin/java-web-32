@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Students List</title>
     <link rel="stylesheet" href="resources/css/styles.css">
-    <script src="../resources/js/functions.js?v122"></script>
+    <script src="../resources/js/functions.js?v125"></script>
 </head>
 
 <body>
@@ -22,10 +22,26 @@
     </div>
     <div class="side margin-top-auto">
         <div class="rigth-side">
-            <a href="">Login</a>
-            <br>
-            <br>
-            <a href="">Logout</a>
+            <c:choose>
+                <c:when test="${isLogin eq true}">
+                    <p>${login}</p>
+                    <c:choose>
+                        <c:when test="${role eq 1}">
+                            <p>Администратор</p>
+                        </c:when>
+                        <c:when test="${role eq 2}">
+                            <p>Учитель</p>
+                        </c:when>
+                        <c:when test="${role eq 3}">
+                            <p>Студент</p>
+                        </c:when>
+                    </c:choose>
+                    <a href="/logout">Logout</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="/login">Login</a>
+                </c:otherwise>
+            </c:choose>
         </div>
     </div>
 </div>
@@ -39,7 +55,7 @@
 
     <div class="midle-place">
         <div class="flex">
-            <input type="submit" class="button" onclick="deleteStudents()"
+            <input type="submit" class="button" onclick="progressStudent()"
                    value="Посмотреть успеваемость выбранных студентов">
             <input type="submit" class="button" onclick="window.location.href='/student-create'"
                    value="Создать студента...">
@@ -66,7 +82,9 @@
             <table>
                 <thead class="thead">
                 <tr>
-                    <th></th>
+                    <c:if test="${role eq 1}">
+                        <th></th>
+                    </c:if>
                     <th>Фамилия</th>
                     <th>Имя</th>
                     <th>Группа</th>
@@ -76,7 +94,9 @@
                 <tbody>
                 <c:forEach items="${students}" var="student">
                     <tr>
-                        <td><input type="checkbox" value="${student.id}" name="idStud"></td>
+                        <c:if test="${role eq 1}">
+                            <td><input type="checkbox" value="${student.id}" name="idStud"></td>
+                        </c:if>
                         <td>${student.surname}</td>
                         <td>${student.name}</td>
                         <td>${student.group}</td>
@@ -98,6 +118,10 @@
 
 <form action="/student-modify" method="get" id="formModify">
     <input type="hidden" value="" name="hiddenModify" id="hiddenModify">
+</form>
+
+<form action="/student-progress" method="get" id="formProgress">
+    <input type="hidden" value="" name="hiddenProgress" id="hiddenProgress">
 </form>
 
 </body>

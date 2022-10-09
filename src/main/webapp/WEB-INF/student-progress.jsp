@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,10 +21,26 @@
   </div>
   <div class="side margin-top-auto">
     <div class="rigth-side">
-      <a href="">Login</a>
-      <br>
-      <br>
-      <a href="">Logout</a>
+      <c:choose>
+        <c:when test="${isLogin eq true}">
+          <p>${login}</p>
+          <c:choose>
+            <c:when test="${role eq 1}">
+              <p>Администратор</p>
+            </c:when>
+            <c:when test="${role eq 2}">
+              <p>Учитель</p>
+            </c:when>
+            <c:when test="${role eq 3}">
+              <p>Студент</p>
+            </c:when>
+          </c:choose>
+          <a href="/logout">Logout</a>
+        </c:when>
+        <c:otherwise>
+          <a href="/login">Login</a>
+        </c:otherwise>
+      </c:choose>
     </div>
   </div>
 </div>
@@ -57,10 +75,10 @@
         </thead>
         <tbody>
         <tr>
-          <td>Петров</td>
-          <td>Пётр</td>
-          <td>КТ-21</td>
-          <td>1/09/2011</td>
+          <td>${student.surname}</td>
+          <td>${student.name}</td>
+          <td>${student.group}</td>
+          <td><f:formatDate value="${student.date}" pattern="dd/MM/yyyy"/></td>
         </tr>
         </tbody>
       </table>

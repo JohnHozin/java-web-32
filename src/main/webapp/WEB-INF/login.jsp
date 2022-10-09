@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,36 +7,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
     <link rel="stylesheet" href="resources/css/styles.css">
-    <title>Система управления студентами и их успеваемостью</title>
 </head>
+
 <body>
-<div class="header">
-    <div class="left-side"></div>
-    <div id="title"><h1>Система управления студентами и их успеваемостью</h1></div>
-    <div class=" right-side blue-button logout"><span><a href="">Logout</a></span></div>
+
+<div class="flex">
+    <div class="side"></div>
+    <div class="header">
+        <h1>Система управления студентами и их успеваемостью</h1>
+    </div>
+    <div class="side margin-top-auto">
+        <div class="rigth-side"></div>
+    </div>
 </div>
-<div class="main">
-    <div class="left-side"><div class="blue-button"></div><div class="blue-button"></div></div>
-    <div class="index">
-        <form method="post" action="/login">
-            <div class="text">Выберите пользователя: <select name="role">
-                <option value="3">Студент</option>
-                <option value="2">Учитель</option>
-                <option value="1">Администратор</option>
-            </select>
+
+<form method="post" action="/login">
+    <div class="flex margin-left margin-top">
+        <div class="nameText">
+            <p>Логин:</p>
+            <p>Пароль:</p>
+            <p>Выберите пользователя:</p>
+        </div>
+        <div class="inputText">
+
+            <div>
+                <input type="text" class="textInput" name="login">
             </div>
             <div>
-                <div class="text">Логин: <input name="login" type="text" size="40"></div>
-                <div class="text">Пароль: <input type="password" name="password" type="text" size="40"></div>
+                <input type="password" class="textInput" name="password">
             </div>
-            <div><button class="grey-button-discipline">Войти</button><div style="width: 299px;"></div></div>
-            <input type="submit" value="Войти"/>
+            <select class="margin-rigth" name="role">
+                <c:forEach items="${roles}" var="role">
+                    <option value="${role.id}">${role.role}</option>
+                </c:forEach>
+            </select>
 
-
-        </form>
+            <div class="margin-bottom"></div>
+            <input type="submit" class="button confirm" value="Войти">
+        </div>
     </div>
-    <div class="right-side blue-button"><span></span></div>
-</div>
-</div>
+</form>
+
+
+<c:if test="${Error eq 1}">
+    <div class="margin-left error">
+        <p>Поля не должны быть пустыми!</p>
+    </div>
+</c:if>
+
+<c:if test="${ErrorLogin eq 1}">
+    <div class="margin-left error">
+        <p>Неверный логин или пароль!</p>
+    </div>
+</c:if>
+
 </body>
+
+</html>

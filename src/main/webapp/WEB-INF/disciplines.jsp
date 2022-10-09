@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discipline List</title>
     <link rel="stylesheet" href="resources/css/styles.css">
+    <script src="../resources/js/functions.js?v125"></script>
 </head>
 
 <body>
@@ -21,10 +22,26 @@
     </div>
     <div class="side margin-top-auto">
         <div class="rigth-side">
-            <a href="#">Login</a>
-            <br>
-            <br>
-            <a href="#">Logout</a>
+            <c:choose>
+                <c:when test="${isLogin eq true}">
+                    <p>${login}</p>
+                    <c:choose>
+                        <c:when test="${role eq 1}">
+                            <p>Администратор</p>
+                        </c:when>
+                        <c:when test="${role eq 2}">
+                            <p>Учитель</p>
+                        </c:when>
+                        <c:when test="${role eq 3}">
+                            <p>Студент</p>
+                        </c:when>
+                    </c:choose>
+                    <a href="/logout">Logout</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="/login">Login</a>
+                </c:otherwise>
+            </c:choose>
         </div>
     </div>
 </div>
@@ -58,7 +75,7 @@
                 <tbody>
                 <c:forEach items="${disciplines}" var="discipline">
                     <tr>
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" value="${discipline.id}" name="idDiscip"></td>
                         <td>${discipline.discipline}</td>
                     </tr>
                 </c:forEach>
@@ -67,18 +84,38 @@
         </form>
     </div>
     <div class="sideDiscipline">
+        <%--        <div class="buttonBot">--%>
+        <%--            <a href="/discipline-create" class="button">Создать дисциплину...</a>--%>
+        <%--        </div>--%>
+        <%--        <div class="buttonBot">--%>
+        <%--            <a href="/discipline-modifying" class="button">Модифицировать выбранную дисциплину...</a>--%>
+        <%--        </div>--%>
+        <%--        <div class="buttonBot">--%>
+        <%--            <a href="" class="button">Удалить выбранную дисциплину...</a>--%>
+        <%--        </div>--%>
+
         <div class="buttonBot">
-            <a href="/discipline-create" class="button">Создать дисциплину...</a>
+            <input type="submit" class="button" onclick="window.location.href='/discipline-create'"
+                   value="Создать дисциплину...">
         </div>
         <div class="buttonBot">
-            <a href="/discipline-modifying" class="button">Модифицировать выбранную дисциплину...</a>
+            <input type="submit" class="button" onclick="modifyDiscipline()"
+                   value="Модифицировать выбранную дисциплину...">
         </div>
         <div class="buttonBot">
-            <a href="" class="button">Удалить выбранную дисциплину...</a>
+            <input type="submit" class="button" onclick="deleteDisciplines()"
+                   value="Удалить выбранную дисциплину...">
         </div>
     </div>
 </div>
 
+<form action="/discipline-delete" method="post" id="formDeleteDiscipline">
+    <input type="hidden" value="" name="hiddenDeleteDiscipline" id="hiddenDeleteDiscipline">
+</form>
+
+<form action="/discipline-modifying" method="get" id="formModifyDiscipline">
+    <input type="hidden" value="" name="hiddenModifyDiscipline" id="hiddenModifyDiscipline">
+</form>
 
 </body>
 
