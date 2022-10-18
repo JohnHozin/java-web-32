@@ -16,9 +16,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
-        $(function () {
-            $("#datepicker").datepicker();
-        });
+        // $(function () {
+        //     $("#datepicker").datepicker();
+        // });
     </script>
 </head>
 
@@ -87,10 +87,10 @@
             <div>
                 <input type="text" class="textInput" name="group">
             </div>
-            <div>
-                <input type="text" class="textInput margin-bottom" id="datepicker" name="date"
-                       value="<f:formatDate value="" pattern="MM/dd/yyyy"/>">
-            </div>
+<%--            <div>--%>
+<%--                <input type="text" class="textInput margin-bottom" id="datepicker" name="date"--%>
+<%--                       value="<f:formatDate value="" pattern="MM/dd/yyyy"/>">--%>
+<%--            </div>--%>
             <div class="margin-bottom">
                 <input type="submit" class="button confirm" value="Создать">
             </div>

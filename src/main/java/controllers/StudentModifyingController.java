@@ -1,7 +1,9 @@
 package controllers;
 
 import db.DBServices;
+import entity.Discipline;
 import entity.Student;
+import entity.Term;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +16,7 @@ import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 @WebServlet(name = "StudentModifyingController", urlPatterns = "/student-modify")

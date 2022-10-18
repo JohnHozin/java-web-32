@@ -150,6 +150,7 @@ h3{
     padding: 10px 0 10px 10px;
 }
 
+
 .student-table td{
     padding: 10px 0 10px 10px;
 }
@@ -192,4 +193,8 @@ select{
 .error p{
     color: red;
     font-size: larger;
+}
+
+.buttonBot a{
+    width: 338px;
 }

@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="resources/css/styles.css">
+    <link rel="stylesheet" href="resources/css/styles.css?v126">
 </head>
 
 <body>
@@ -39,10 +39,16 @@
                 <input type="password" class="textInput" name="password">
             </div>
             <select class="margin-rigth" name="role">
-                <c:forEach items="${roles}" var="role">
-                    <option value="${role.id}">${role.role}</option>
+                <c:forEach items="${roles}" var="r">
+                    <option value="${r.id}">${r.role}</option>
                 </c:forEach>
             </select>
+
+<%--            <select class="margin-rigth"  name="role">--%>
+<%--                <option value="3">Студент</option>--%>
+<%--                <option value="2">Учитель</option>--%>
+<%--                <option value="1">Администратор</option>--%>
+<%--            </select>--%>
 
             <div class="margin-bottom"></div>
             <input type="submit" class="button confirm" value="Войти">
@@ -59,7 +65,7 @@
 
 <c:if test="${ErrorLogin eq 1}">
     <div class="margin-left error">
-        <p>Неверный логин или пароль!</p>
+        <p>Неверный логин или пароль или роль!</p>
     </div>
 </c:if>
 

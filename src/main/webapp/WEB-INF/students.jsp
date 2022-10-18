@@ -57,14 +57,19 @@
         <div class="flex">
             <input type="submit" class="button" onclick="progressStudent()"
                    value="Посмотреть успеваемость выбранных студентов">
-            <input type="submit" class="button" onclick="window.location.href='/student-create'"
-                   value="Создать студента...">
-        </div>
 
-        <div class="flex">
-            <input type="submit" class="button" onclick="modifyStudent()" value="Модифицировать выбранного студента">
-            <input type="submit" class="button" onclick="deleteStudents()" value="Удалить выбранных студентов">
+            <c:if test="${role eq 1}">
+                <input type="submit" class="button" onclick="window.location.href='/student-create'"
+                       value="Создать студента...">
+            </c:if>
         </div>
+        <c:if test="${role eq 1}">
+            <div class="flex">
+                <input type="submit" class="button" onclick="modifyStudent()"
+                       value="Модифицировать выбранного студента">
+                <input type="submit" class="button" onclick="deleteStudents()" value="Удалить выбранных студентов">
+            </div>
+        </c:if>
     </div>
     <div class="side"></div>
 </div>
@@ -82,9 +87,7 @@
             <table>
                 <thead class="thead">
                 <tr>
-                    <c:if test="${role eq 1}">
-                        <th></th>
-                    </c:if>
+                    <th></th>
                     <th>Фамилия</th>
                     <th>Имя</th>
                     <th>Группа</th>
@@ -94,9 +97,7 @@
                 <tbody>
                 <c:forEach items="${students}" var="student">
                     <tr>
-                        <c:if test="${role eq 1}">
-                            <td><input type="checkbox" value="${student.id}" name="idStud"></td>
-                        </c:if>
+                        <td><input type="checkbox" value="${student.id}" name="idStud"></td>
                         <td>${student.surname}</td>
                         <td>${student.name}</td>
                         <td>${student.group}</td>

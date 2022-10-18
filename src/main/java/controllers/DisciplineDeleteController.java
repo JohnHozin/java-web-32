@@ -14,7 +14,6 @@ public class DisciplineDeleteController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         DBServices services = new DBServices();
         String idsToDelete = req.getParameter("hiddenDeleteDiscipline");
-        // 2 4 6 7
         String[] ids = idsToDelete.split(" ");
         for(String id:ids){
             services.deleteDiscipline(id);

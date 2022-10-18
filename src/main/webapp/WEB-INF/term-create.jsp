@@ -63,20 +63,30 @@
         <p>Длительность (в неделях)</p>
         <p>Дисциплины в семестре</p>
     </div>
-    <div class="inputText">
-        <div>
-            <input type="text" class="textInput">
+    <form method="post" action="/term-create">
+        <div class="inputText">
+            <div>
+                <input type="text" class="textInput" name="duration">
+            </div>
+<%--            <label for="idsDisciplines"></label>--%>
+            <select class="margin-rigth margin-bottom" multiple size="5" name="idsDisciplines">
+                <c:forEach items="${disciplines}" var="d">
+                    <option value="${d.id}">${d.discipline}</option>
+                </c:forEach>
+            </select>
+            <div class="justBut">
+                <input type="submit" value="Создать" class="button confirm">
+            </div>
         </div>
-        <select class="margin-rigth margin-bottom" multiple size="5">
-            <c:forEach items="${disciplines}" var="discipline">
-                <option value="${discipline.discipline}">${discipline.discipline}</option>
-            </c:forEach>
-        </select>
-        <div>
-            <a href="" class="button confirm">Создать</a>
-        </div>
-    </div>
+
+    </form>
 </div>
+
+<c:if test="${Error eq 1}">
+    <div class="margin-left error">
+        <p>Поля не должны быть пустыми!</p>
+    </div>
+</c:if>
 
 </body>
 </html>

@@ -68,14 +68,18 @@
             <table>
                 <thead class="thead">
                 <tr>
-                    <th></th>
+                    <c:if test="${role eq 1}">
+                        <th></th>
+                    </c:if>
                     <th>Наименование дисциплины</th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${disciplines}" var="discipline">
                     <tr>
-                        <td><input type="checkbox" value="${discipline.id}" name="idDiscip"></td>
+                        <c:if test="${role eq 1}">
+                            <td><input type="checkbox" value="${discipline.id}" name="idDiscip"></td>
+                        </c:if>
                         <td>${discipline.discipline}</td>
                     </tr>
                 </c:forEach>
@@ -83,30 +87,32 @@
             </table>
         </form>
     </div>
-    <div class="sideDiscipline">
-        <%--        <div class="buttonBot">--%>
-        <%--            <a href="/discipline-create" class="button">Создать дисциплину...</a>--%>
-        <%--        </div>--%>
-        <%--        <div class="buttonBot">--%>
-        <%--            <a href="/discipline-modifying" class="button">Модифицировать выбранную дисциплину...</a>--%>
-        <%--        </div>--%>
-        <%--        <div class="buttonBot">--%>
-        <%--            <a href="" class="button">Удалить выбранную дисциплину...</a>--%>
-        <%--        </div>--%>
+    <c:if test="${role eq 1}">
+        <div class="sideDiscipline">
+                <%--        <div class="buttonBot">--%>
+                <%--            <a href="/discipline-create" class="button">Создать дисциплину...</a>--%>
+                <%--        </div>--%>
+                <%--        <div class="buttonBot">--%>
+                <%--            <a href="/discipline-modifying" class="button">Модифицировать выбранную дисциплину...</a>--%>
+                <%--        </div>--%>
+                <%--        <div class="buttonBot">--%>
+                <%--            <a href="" class="button">Удалить выбранную дисциплину...</a>--%>
+                <%--        </div>--%>
 
-        <div class="buttonBot">
-            <input type="submit" class="button" onclick="window.location.href='/discipline-create'"
-                   value="Создать дисциплину...">
+            <div class="buttonBot">
+                <input type="submit" class="button" onclick="window.location.href='/discipline-create'"
+                       value="Создать дисциплину...">
+            </div>
+            <div class="buttonBot">
+                <input type="submit" class="button" onclick="modifyDiscipline()"
+                       value="Модифицировать выбранную дисциплину...">
+            </div>
+            <div class="buttonBot">
+                <input type="submit" class="button" onclick="deleteDisciplines()"
+                       value="Удалить выбранную дисциплину...">
+            </div>
         </div>
-        <div class="buttonBot">
-            <input type="submit" class="button" onclick="modifyDiscipline()"
-                   value="Модифицировать выбранную дисциплину...">
-        </div>
-        <div class="buttonBot">
-            <input type="submit" class="button" onclick="deleteDisciplines()"
-                   value="Удалить выбранную дисциплину...">
-        </div>
-    </div>
+    </c:if>
 </div>
 
 <form action="/discipline-delete" method="post" id="formDeleteDiscipline">

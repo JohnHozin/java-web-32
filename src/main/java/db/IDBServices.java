@@ -31,11 +31,11 @@ public interface IDBServices {
     List<Discipline> getDisciplinesByTerm(String idTerm);
 
     // 1,2,4,7,9
-    void createTerm(String duration, String idsDisciplines);
+    void createTerm(String duration, String idsDisciplines[]);
 
     Term getTermById(String id);
 
-    void modifyTerm(String id, String newDuration, String newIdsDisciplines);
+    void modifyTerm(String id, String newDuration, String newIdsDisciplines[]);
 
     void deleteTerm(String id);
 

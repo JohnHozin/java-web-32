@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms List</title>
-    <link rel="stylesheet" href="resources/css/styles.css">
+    <link rel="stylesheet" href="resources/css/styles.css?v1.3">
 </head>
 <body>
 <div class="flex">
@@ -50,29 +50,32 @@
         </div>
     </div>
 
-    <div class="sideDiscipline">
+    <form method="get">
         <div class="flex">
             <h3 class="margin-rigth">
                 Выбрать семестр
             </h3>
 
-            <select class="margin-rigth">
-                <c:forEach items="${terms}" var="term">
-                    <option value="${term.term}">${term.term}</option>
+
+            <select class="margin-rigth" name="idSelectedTerm">
+                <c:forEach items="${terms}" var="t">
+                    <option value="${t.id}"
+                            <c:if test="${t eq selectedTerm}">
+                                selected
+                            </c:if>
+                    >${t.term}</option>
+                    <%--                    <option value="${t.id}">${t.term}</option>--%>
                 </c:forEach>
             </select>
 
             <div class="justBut">
-                <a href="" class="progress">Выбрать</a>
+                <input type="submit" value="Выбрать" class="progress">
             </div>
         </div>
         <h2>
-            Длительность семестра: 24 недели
+            Длительность семестра: ${selectedTerm.duration}
         </h2>
-        <h2>
-            Средняя оценка за семестр: 4.8 балла
-        </h2>
-    </div>
+    </form>
 </div>
 
 <div class="flex">
@@ -82,33 +85,45 @@
             <table>
                 <thead class="thead">
                 <tr>
-                    <th></th>
                     <th>Наименование дисциплины</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${terms}" var="term">
+                <c:forEach items="${disciplines}" var="d">
                     <tr>
-                        <td><input type="checkbox"></td>
-                        <td>${term.term}</td>
+                        <td>${d.discipline}</td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
         </form>
     </div>
-    <div class="sideDiscipline">
-        <div class="buttonBot">
-            <a href="/term-create" class="button">Создать семестр...</a>
+    <c:if test="${role eq 1}">
+        <div class="sideDiscipline">
+            <div class="buttonBot">
+                <input type="submit" class="button" onclick="window.location.href='/term-create'"
+                       value="Создать семестр...">
+            </div>
+<%--            onclick="modifyTerm()"--%>
+            <div class="buttonBot">
+                <input type="submit" class="button" onclick="window.location.href='/term-modifying'"
+                       value="Модифицировать текущий семестр...">
+            </div>
+            <form method="post" action="/term-delete">
+            <div class="buttonBot">
+                <input type="submit" class="button"
+                       value="Удалить текущий семестр...">
+<%--                <input type="submit" class="button" onclick="window.location.href='/term-delete'"--%>
+<%--                       value="Удалить текущий семестр...">--%>
+            </div>
+            </form>
         </div>
-        <div class="buttonBot">
-            <a href="/term-modifying" class="button">Модифицировать текущий семестр...</a>
-        </div>
-        <div class="buttonBot">
-            <a href="" class="button">Удалить текущий семестр...</a>
-        </div>
-    </div>
+    </c:if>
 </div>
+
+<%--<form action="/term-delete" method="post" id="formDeleteTerm">--%>
+<%--    <input type="hidden" value="" name="hiddenDeleteTerm" id="hiddenDeleteTerm">--%>
+<%--</form>--%>
 
 </body>
 </html>

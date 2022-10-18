@@ -9,29 +9,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41caf11d-9e01-4ef6-8e75-e4019c134b7f" name="Changes" comment="add some thiches">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/DisciplineDeleteController.java" afterDir="false" />
+    <list default="true" id="41caf11d-9e01-4ef6-8e75-e4019c134b7f" name="Changes" comment="add some chenges">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/LogoutController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/TermDeleteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/filters/LoginFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/DisciplineCreateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/DisciplineCreateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/DisciplineModifyingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/DisciplineModifyingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/DisciplineDeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/DisciplineDeleteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/StudentDeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/StudentDeleteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/StudentModifyingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/StudentModifyingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/StudentProgressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/StudentProgressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/TermCreateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/TermCreateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/TermModifyingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/TermModifyingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/TermsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/TermsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/db/DBServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/DBServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/discipline-create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/discipline-create.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/discipline-modifying.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/discipline-modifying.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/db/IDBServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/db/IDBServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/disciplines.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/disciplines.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/student-create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/student-create.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/student-modifying.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/student-modifying.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/student-progress.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/student-progress.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/students.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/students.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/term-create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/term-create.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/term-modifying.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/term-modifying.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/terms.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/terms.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/functions.js" afterDir="false" />
     </list>
@@ -77,7 +77,10 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/javaProjects/java-web-32/src/main/webapp/resourses/css&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/javaProjects/hotel&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
   }
 }</component>
@@ -298,7 +301,18 @@
       <workItem from="1665153468347" duration="2628000" />
       <workItem from="1665216936825" duration="58000" />
       <workItem from="1665257172991" duration="616000" />
-      <workItem from="1665311010225" duration="20635000" />
+      <workItem from="1665311010225" duration="23045000" />
+      <workItem from="1665418372414" duration="10809000" />
+      <workItem from="1665674642092" duration="2243000" />
+      <workItem from="1665767527965" duration="11632000" />
+      <workItem from="1665835949733" duration="8424000" />
+      <workItem from="1665852314891" duration="2166000" />
+      <workItem from="1665990384972" duration="7014000" />
+      <workItem from="1666022450286" duration="13702000" />
+      <workItem from="1666074773561" duration="8397000" />
+      <workItem from="1666117538637" duration="236000" />
+      <workItem from="1666119293978" duration="1911000" />
+      <workItem from="1666122472304" duration="1391000" />
     </task>
     <task id="LOCAL-00001" summary="make HW">
       <created>1663017718895</created>
@@ -335,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665216982978</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add some chenges">
+      <created>1665343943608</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1665343943608</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,7 +378,8 @@
     <MESSAGE value="make HW1" />
     <MESSAGE value="first commit" />
     <MESSAGE value="add some thiches" />
-    <option name="LAST_COMMIT_MESSAGE" value="add some thiches" />
+    <MESSAGE value="add some chenges" />
+    <option name="LAST_COMMIT_MESSAGE" value="add some chenges" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -366,6 +388,16 @@
           <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
           <line>27</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controllers/TermDeleteController.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/db/DBServices.java</url>
+          <line>281</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
