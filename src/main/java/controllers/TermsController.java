@@ -28,7 +28,11 @@ public class TermsController extends HttpServlet {
         Term selectedTerm = null;
         if (idSelectedTerm == null) {
             if (terms.size() != 0){
-                selectedTerm = terms.get(0);
+                //selectedTerm = terms.get(0);
+                selectedTerm = (Term) req.getSession().getAttribute("selectedTerm");
+                if (selectedTerm == null){
+                    selectedTerm = terms.get(0);
+                }
             }
         } else {
             selectedTerm = dataBaseServices.getTermById(idSelectedTerm);

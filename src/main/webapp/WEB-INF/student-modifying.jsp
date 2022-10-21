@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -88,11 +88,9 @@
             </div>
             <div>
                 <input type="text" class="textInput margin-bottom" id="datepicker" name="date"
-<%--                                       value="${student.date}">--%>
                        value="<f:formatDate value="${student.date}" pattern="MM/dd/yyyy"/>">
             </div>
             <div class="margin-bottom">
-                <%--                <a href="/student-modify" class="button confirm">Применить</a>--%>
                 <input type="submit" class="button confirm" value="Применить">
             </div>
         </div>

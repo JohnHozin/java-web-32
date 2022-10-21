@@ -3,7 +3,7 @@
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,7 +69,7 @@
                 <input type="text" class="textInput" name="duration">
             </div>
 <%--            <label for="idsDisciplines"></label>--%>
-            <select class="margin-rigth margin-bottom" multiple size="5" name="idsDisciplines">
+            <select class="margin-rigth margin-bottom" multiple size="${disciplinesSize}" name="idsDisciplines">
                 <c:forEach items="${disciplines}" var="d">
                     <option value="${d.id}">${d.discipline}</option>
                 </c:forEach>

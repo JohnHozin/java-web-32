@@ -183,6 +183,10 @@ public class DBServices implements IDBServices {
                 term.setId(rs.getInt("id"));
                 term.setTerm(rs.getString("term"));
                 term.setDuration(rs.getString("duration"));
+
+                // добавим доступные дисциплины
+                String id = rs.getInt("id") + "";
+                term.setDisciplines(getDisciplinesByTerm(id));
                 terms.add(term);
             }
         } catch (Exception e) {
@@ -201,7 +205,6 @@ public class DBServices implements IDBServices {
             ResultSet rs = stmt.executeQuery("SELECT * FROM term_discipline as td\n" +
                     "left join discipline as d on td.id_discipline = d.id\n" +
                     "where d.status = '1' and td.id_term = " + idTerm);
-
             while (rs.next()) {
                 Discipline discipline = new Discipline();
                 discipline.setId(rs.getInt("id_discipline"));
@@ -220,14 +223,17 @@ public class DBServices implements IDBServices {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(Constants.URL_TO_DB, Constants.LOGIN_TO_DB, Constants.PASSWORD_TO_DB);
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM term order by id desc limit 1"); // where status = '1'
-
+            ResultSet rs = stmt.executeQuery("SELECT * FROM term order by id desc limit 1");
             String termNames = "";
             String idTerm = "";
             while (rs.next()) {
-                int termName = Integer.parseInt(rs.getString("term").split(" ")[1]) + 1;
-                termNames = "Семестр " + termName;
                 idTerm = (rs.getInt("id") + 1) + "";
+            }
+            rs = stmt.executeQuery("SELECT * FROM term where status = '1' order by id desc limit 1");
+            while (rs.next()) {
+                String termName = rs.getString("term").split(" ")[0];
+                int termNumber = Integer.parseInt(rs.getString("term").split(" ")[1]) + 1;
+                termNames = termName + " " + termNumber;
             }
             stmt.execute("INSERT INTO term (`term`, `duration`) VALUES (('" + termNames + "'), ('" + duration + "'));");
             for (String ids : idsDisciplines) {
@@ -251,6 +257,9 @@ public class DBServices implements IDBServices {
                 term.setId(rs.getInt("id"));
                 term.setTerm(rs.getString("term"));
                 term.setDuration(rs.getString("duration"));
+
+                String idTerm = rs.getInt("id") + "";
+                term.setDisciplines(getDisciplinesByTerm(idTerm));
                 return term;
             }
         } catch (Exception e) {
@@ -351,6 +360,33 @@ public class DBServices implements IDBServices {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public void setMarks(String idStud, String idTerm_Discipline, String mark){
+        ArrayList<Mark> marks = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(Constants.URL_TO_DB, Constants.LOGIN_TO_DB, Constants.PASSWORD_TO_DB);
+            Statement stmt = conn.createStatement();
+            stmt.execute("INSERT INTO mark (`id_student`, `id_term_discipline`, `mark`) VALUES ('" + idStud + "', '" + idTerm_Discipline + "', '" + mark + "')");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getIdTerm_Discipline(String idTerm, String idDiscipline){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(Constants.URL_TO_DB, Constants.LOGIN_TO_DB, Constants.PASSWORD_TO_DB);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM term_discipline as td where td.id_term = '" + idTerm + "' and td.id_discipline = '" + idDiscipline + "'");
+            while (rs.next()) {
+                return rs.getInt("id") + "";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

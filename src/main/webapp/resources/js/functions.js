@@ -78,8 +78,3 @@ function modifyDiscipline() {
     document.getElementById('formModifyDiscipline').submit();
 }
 
-// function deleteTerm() {
-//     //var checkedTerm = document.querySelectorAll('input[name=selectedTerm]:checked')
-//     document.getElementById("hiddenDeleteTerm").value = document.querySelectorAll('input[name=selectedTerm]:checked');
-//     document.getElementById('formDeleteTerm').submit();
-// }

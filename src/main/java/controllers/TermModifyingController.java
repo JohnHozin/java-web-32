@@ -19,9 +19,10 @@ public class TermModifyingController extends HttpServlet {
         DBServices dataBaseServices = new DBServices();
         Term selectedTerm = (Term) req.getSession().getAttribute("selectedTerm");
         List<Discipline> disciplines = dataBaseServices.getAllActiveDisciplines();
-        req.setAttribute("disciplines", disciplines);
+        req.getSession().setAttribute("disciplines", disciplines);
         String duration = selectedTerm.getDuration();
         req.setAttribute("duration", duration);
+        req.setAttribute("disciplinesSize", disciplines.size());
 
         req.getRequestDispatcher("WEB-INF/term-modifying.jsp").forward(req, resp);
     }

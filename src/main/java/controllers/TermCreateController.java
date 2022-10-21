@@ -18,6 +18,7 @@ public class TermCreateController extends HttpServlet {
         DBServices dataBaseServices = new DBServices();
         List<Discipline> disciplines = dataBaseServices.getAllActiveDisciplines();
         req.getSession().setAttribute("disciplines", disciplines);
+        req.setAttribute("disciplinesSize", disciplines.size());
         req.getRequestDispatcher("WEB-INF/term-create.jsp").forward(req, resp);
     }
 

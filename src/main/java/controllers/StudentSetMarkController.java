@@ -14,40 +14,35 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "StudentProgressController", urlPatterns = "/student-progress")
-public class StudentProgressController extends HttpServlet {
-
+@WebServlet(name = "StudentSetMarkController", urlPatterns = "/student-set-mark")
+public class StudentSetMarkController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("hiddenProgress");
+        String id = (String) req.getSession().getAttribute("choicenStudent");
         DBServices services = new DBServices();
-        Student student;
-        if (id != null) {
-            student = services.getStudentById(id);
-            // если добавить студента в сессию нужно ли будет его оттуда удалять?
-            req.getSession().setAttribute("student", student);
-            req.getSession().setAttribute("choicenStudent", student.getId() + "");
-        } else {
-            id = (String) req.getSession().getAttribute("choicenStudent");
-            student = services.getStudentById(id);
-        }
+        Student student = services.getStudentById(id);
 
         List<Term> terms = services.getAllActiveTerms();
         req.setAttribute("terms", terms);
 
         String idSelectedTerm = req.getParameter("idSelectedTerm");
+        //Term selectedTerm = (Term) req.getSession().getAttribute("selectedTerm");
         Term selectedTerm = null;
         if (idSelectedTerm == null) {
             if (terms.size() != 0) {
-                selectedTerm = terms.get(0);
+                selectedTerm = (Term) req.getSession().getAttribute("selectedTerm");
+                if (selectedTerm == null){
+                    selectedTerm = terms.get(0);
+                }
             }
         } else {
             selectedTerm = services.getTermById(idSelectedTerm);
         }
         req.getSession().setAttribute("selectedTerm", selectedTerm);
 
-        List<Discipline> disciplines = services.getDisciplinesByTerm(selectedTerm.getId() + "");
-        req.setAttribute("disciplines", disciplines);
+        List<Discipline> disciplinesByTerm = services.getDisciplinesByTerm(selectedTerm.getId() + "");
+        req.setAttribute("disciplinesByTerm", disciplinesByTerm);
+
         List<Mark> marks = services.getMarks(student.getId() + "", selectedTerm.getId() + "");
         req.setAttribute("marks", marks);
         if (marks.size() == 0) {
@@ -60,7 +55,6 @@ public class StudentProgressController extends HttpServlet {
             middleMark = middleMark / marks.size();
             req.setAttribute("middleMark", String.format("%.1f", middleMark));
         }
-        req.getRequestDispatcher("WEB-INF/student-progress.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/student-set-mark.jsp").forward(req, resp);
     }
-
 }

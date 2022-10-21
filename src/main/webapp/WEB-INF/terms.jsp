@@ -3,7 +3,7 @@
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +56,6 @@
                 Выбрать семестр
             </h3>
 
-
             <select class="margin-rigth" name="idSelectedTerm">
                 <c:forEach items="${terms}" var="t">
                     <option value="${t.id}"
@@ -64,7 +63,6 @@
                                 selected
                             </c:if>
                     >${t.term}</option>
-                    <%--                    <option value="${t.id}">${t.term}</option>--%>
                 </c:forEach>
             </select>
 
@@ -104,7 +102,6 @@
                 <input type="submit" class="button" onclick="window.location.href='/term-create'"
                        value="Создать семестр...">
             </div>
-<%--            onclick="modifyTerm()"--%>
             <div class="buttonBot">
                 <input type="submit" class="button" onclick="window.location.href='/term-modifying'"
                        value="Модифицировать текущий семестр...">
@@ -113,17 +110,11 @@
             <div class="buttonBot">
                 <input type="submit" class="button"
                        value="Удалить текущий семестр...">
-<%--                <input type="submit" class="button" onclick="window.location.href='/term-delete'"--%>
-<%--                       value="Удалить текущий семестр...">--%>
             </div>
             </form>
         </div>
     </c:if>
 </div>
-
-<%--<form action="/term-delete" method="post" id="formDeleteTerm">--%>
-<%--    <input type="hidden" value="" name="hiddenDeleteTerm" id="hiddenDeleteTerm">--%>
-<%--</form>--%>
 
 </body>
 </html>

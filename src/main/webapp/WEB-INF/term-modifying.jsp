@@ -3,7 +3,7 @@
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,7 +53,7 @@
 
     <div class="midle-place">
         <h3>
-            Для модификации семестра отредактируйте данные и нажмите кнопку "Применить".
+            Для модификации "${selectedTerm.term}" отредактируйте данные и нажмите кнопку "Применить".
         </h3>
     </div>
 </div>
@@ -68,7 +68,7 @@
             <div>
                 <input type="text" class="textInput" name="duration" value="${duration}">
             </div>
-            <select class="margin-rigth margin-bottom" multiple size="5" name="idsDisciplines">
+            <select class="margin-rigth margin-bottom" multiple size="${disciplinesSize}" name="idsDisciplines">
                 <c:forEach items="${disciplines}" var="d">
                     <option value="${d.id}">${d.discipline}</option>
                 </c:forEach>

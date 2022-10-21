@@ -9,8 +9,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Progress</title>
-    <link rel="stylesheet" href="resources/css/styles.css?v1.6">
+    <title>Student Set Marks</title>
+    <link rel="stylesheet" href="resources/css/styles.css?v1.7">
 </head>
 
 <body>
@@ -49,7 +49,7 @@
     <div class="side">
         <div class=" backToStart">
             <a href="/">На главную</a>
-            <a href="/students">Назад</a>
+            <a href="/student-progress">Назад</a>
         </div>
     </div>
 
@@ -86,22 +86,10 @@
     </div>
 </div>
 
-
-<%--<c:forEach items="${students}" var="student">--%>
-<%--  <tr>--%>
-<%--    <td><input type="checkbox"></td>--%>
-<%--    <td>${student.surname}</td>--%>
-<%--    <td>${student.name}</td>--%>
-<%--    <td>${student.group}</td>--%>
-<%--    <td><f:formatDate value="${student.date}" pattern="d/MM/yyyy"/></td>--%>
-<%--  </tr>--%>
-<%--</c:forEach>--%>
-
-
 <div class="flex margin-top">
     <div class="side"></div>
     <div class="sideDiscipline">
-        <form method="get">
+        <form method="post" action="/set-mark">
             <table>
                 <thead class="thead">
                 <tr>
@@ -110,27 +98,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                <%--                <c:forEach items="${marks}" var="m">--%>
-                <%--                    <tr>--%>
-                <%--                        <td>${m.discipline.discipline}</td>--%>
-                <%--&lt;%&ndash;                        <td>${m.mark}</td>&ndash;%&gt;--%>
-                <%--                        <c:choose>--%>
-                <%--                            <c:when test="${m.mark eq null}">--%>
-                <%--                                <td>Нет оценки</td>--%>
-                <%--                            </c:when>--%>
-                <%--                            <c:otherwise>--%>
-                <%--                                <td>${m.mark}</td>--%>
-                <%--                            </c:otherwise>--%>
-                <%--                        </c:choose>--%>
-                <%--                    </tr>--%>
-                <%--                </c:forEach>--%>
 
                 <c:choose>
                     <c:when test="${marks.size() eq 0}">
-                        <c:forEach items="${disciplines}" var="d">
+                        <c:forEach items="${disciplinesByTerm}" var="dT">
                             <tr>
-                                <td>${d.discipline}</td>
-                                <td></td>
+                                <td>${dT.discipline}</td>
+                                <td>
+                                    <select name="mark ${dT.discipline}">
+                                        <option value="0">Выберете оценку</option>
+                                        <option value="5">5</option>
+                                        <option value="4">4</option>
+                                        <option value="3">3</option>
+                                        <option value="2">2</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </td>
                             </tr>
                         </c:forEach>
                     </c:when>
@@ -143,9 +126,65 @@
                         </c:forEach>
                     </c:otherwise>
                 </c:choose>
+                <%--                <c:choose>--%>
+                <%--                    <c:when test="${marks.size() eq 0}">--%>
+                <%--                        <c:forEach items="${disciplinesByTerm}" var="d">--%>
+                <%--                            <tr>--%>
+                <%--                                <td>${d.discipline}</td>--%>
+                <%--                                <td>--%>
+                <%--                                        &lt;%&ndash;                                    <select name="setMark ${d.discipline}">&ndash;%&gt;--%>
+                <%--                                    <select name="mk">--%>
+                <%--                                        <option value="0">Выберете оценку</option>--%>
+                <%--                                        <option value="5">5</option>--%>
+                <%--                                        <option value="4">4</option>--%>
+                <%--                                        <option value="3">3</option>--%>
+                <%--                                        <option value="2">2</option>--%>
+                <%--                                        <option value="1">1</option>--%>
+                <%--                                    </select>--%>
+                <%--                                </td>--%>
+                <%--                            </tr>--%>
+                <%--                        </c:forEach>--%>
+                <%--                    </c:when>--%>
+                <%--                    <c:otherwise>--%>
+                <%--                        <c:forEach items="${marks}" var="m">--%>
+                <%--                            <tr>--%>
+                <%--                                <td>${m.discipline.discipline}</td>--%>
+                <%--                                <td>${m.mark}</td>--%>
+                <%--                            </tr>--%>
+                <%--                        </c:forEach>--%>
+                <%--                    </c:otherwise>--%>
+                <%--                </c:choose>--%>
+
                 </tbody>
             </table>
+            <div class="text-center margin-top">
+                <input type="submit" class="button"
+                       value="Принять">
+            </div>
         </form>
+
+        <%--        <form method="post" action="/set-mark">--%>
+        <%--            <c:forEach items="${disciplinesByTerm}" var="dT">--%>
+        <%--                <div class="flex margin-top">--%>
+        <%--                    <div class="margin-rigth">--%>
+        <%--                        <p>${dT.discipline}</p>--%>
+        <%--                    </div>--%>
+        <%--                    <select name="mark ${dT.discipline}">--%>
+        <%--                        <option value="0">Выберете оценку</option>--%>
+        <%--                        <option value="5">5</option>--%>
+        <%--                        <option value="4">4</option>--%>
+        <%--                        <option value="3">3</option>--%>
+        <%--                        <option value="2">2</option>--%>
+        <%--                        <option value="1">1</option>--%>
+        <%--                    </select>--%>
+        <%--                </div>--%>
+        <%--            </c:forEach>--%>
+        <%--            <div class="text-center margin-top">--%>
+        <%--                <input type="submit" class="button"--%>
+        <%--                       value="Принять">--%>
+        <%--            </div>--%>
+        <%--        </form>--%>
+
     </div>
 
 
@@ -180,14 +219,9 @@
                 </h2>
             </div>
         </form>
-
-        <c:if test="${role eq 1 or role eq 2}">
-            <div class="text-center">
-                <input type="submit" class="button" onclick="window.location.href='/student-set-mark'"
-                       value="Выставить оценки студенту">
-            </div>
-        </c:if>
     </div>
+
+
 </div>
 
 

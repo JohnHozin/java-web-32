@@ -1,7 +1,6 @@
 package filters;
 
 import javax.servlet.*;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -41,12 +40,10 @@ public class LoginFilter implements Filter {
 
         if (url.endsWith("/login")){
             filterChain.doFilter(servletRequest, servletResponse);
-            return;
         } else {
             resp.sendRedirect("/login");
-            return;
         }
-
+        return;
     }
 
     @Override
